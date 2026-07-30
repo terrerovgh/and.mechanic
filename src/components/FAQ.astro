@@ -1,0 +1,11 @@
+---
+import { ChevronDown } from 'lucide-astro';
+import { siteData } from '../data/siteData';
+---
+
+<section class="section-pad bg-white" aria-labelledby="faq-title">
+  <div class="container-site grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
+    <div><p class="eyebrow">Good to know</p><h2 id="faq-title" class="display mt-4 text-5xl leading-[.88] sm:text-6xl">Straight<br />answers.</h2></div>
+    <div class="divide-y divide-ink/15 border-t border-ink/15">{siteData.faqs.map((faq) => <details class="group py-5"><summary class="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold"><span>{faq.question}</span><ChevronDown class="shrink-0 text-signal transition group-open:rotate-180" size={20} aria-hidden="true" /></summary><p class="max-w-2xl pt-4 pr-8 text-sm leading-relaxed text-ink-soft">{faq.answer}</p></details>)}</div>
+  </div>
+</section>

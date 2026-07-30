@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --font-display: "Barlow Condensed", Impact, sans-serif;
+  --color-ink: #101820;
+  --color-ink-soft: #26333d;
+  --color-signal: #ff5a1f;
+  --color-cream: #f7f5ef;
+  --color-mist: #e8eceb;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-cream font-sans text-ink antialiased; }
+::selection { @apply bg-signal text-white; }
+summary::-webkit-details-marker { display: none; }
+.container-site { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+.eyebrow { @apply text-xs font-bold uppercase tracking-[0.18em] text-signal; }
+.display { @apply font-display font-bold uppercase tracking-[-0.035em]; }
+.section-pad { @apply py-20 md:py-28; }
+.focus-ring { @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal; }

@@ -1,0 +1,24 @@
+---
+import { ArrowUpRight, Clock3, MapPin } from 'lucide-astro';
+import { siteData } from '../data/siteData';
+const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(siteData.mapQuery)}&output=embed`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(siteData.mapQuery)}`;
+---
+
+<section class="section-pad bg-mist" aria-labelledby="location-title">
+  <div class="container-site grid gap-10 lg:grid-cols-2">
+    <div>
+      <p class="eyebrow">Proudly local</p>
+      <h2 id="location-title" class="display mt-4 text-5xl leading-[.88] sm:text-6xl">Here when<br />South Georgia<br />needs us.</h2>
+      <div class="mt-8 space-y-5 text-sm">
+        <div class="flex gap-3"><MapPin class="mt-0.5 shrink-0 text-signal" size={20} /><div><strong class="block">Service area</strong><span class="text-ink-soft">{siteData.address.street}</span></div></div>
+        <div class="flex gap-3"><Clock3 class="mt-0.5 shrink-0 text-signal" size={20} /><div><strong class="block">Shop hours</strong>{siteData.hours.map((entry) => <span class="block text-ink-soft">{entry.days}: {entry.hours}</span>)}</div></div>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-2">{siteData.serviceAreas.map((area) => <span class="border border-ink/20 px-3 py-1.5 text-xs font-bold">{area}</span>)}</div>
+      <a class="focus-ring mt-8 inline-flex items-center gap-2 text-sm font-bold text-signal hover:text-ink" href={directionsUrl} target="_blank" rel="noopener noreferrer">Get directions <ArrowUpRight size={17} aria-hidden="true" /></a>
+    </div>
+    <div class="min-h-96 overflow-hidden border-8 border-white bg-ink shadow-lg">
+      <iframe class="h-full min-h-96 w-full" title="Map of Ray City, Georgia" src={mapUrl} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { siteData } from '../data/siteData';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${siteData.businessName} | Auto Repair in Ray City, GA`,
+  description = siteData.description,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  name: siteData.businessName,
+  description: siteData.description,
+  url: Astro.site?.toString(),
+  telephone: siteData.phone,
+  email: siteData.email,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteData.address.street,
+    addressLocality: siteData.address.locality,
+    addressRegion: siteData.address.region,
+    postalCode: siteData.address.postalCode,
+    addressCountry: siteData.address.country,
+  },
+  areaServed: siteData.serviceAreas.map((name) => ({ '@type': 'City', name })),
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:30' },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101820" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

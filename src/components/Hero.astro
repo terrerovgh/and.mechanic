@@ -1,0 +1,32 @@
+---
+import { ArrowDown, ArrowRight, BadgeCheck, Phone, ShieldCheck, Zap } from 'lucide-astro';
+import { siteData } from '../data/siteData';
+---
+
+<section id="top" class="relative overflow-hidden bg-ink text-white">
+  <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(115deg, transparent 0 47%, #ff5a1f 47% 48%, transparent 48% 100%), radial-gradient(circle at 80% 45%, #7b8c7b 0 2px, transparent 2px); background-size: auto, 28px 28px;"></div>
+  <div class="container-site relative grid min-h-[650px] items-center gap-12 py-20 lg:grid-cols-[1.15fr_.85fr] lg:py-24">
+    <div class="max-w-3xl">
+      <p class="mb-5 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#ffc4aa]"><span class="h-px w-8 bg-signal"></span> Your South Georgia auto shop</p>
+      <h1 class="display max-w-3xl text-6xl leading-[.84] sm:text-7xl md:text-8xl">Repairs done right.<br /><span class="text-signal">Prices kept honest.</span></h1>
+      <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/75">Dependable diagnostics, maintenance and repair for Ray City drivers. Clear communication, quality work and no surprises.</p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a class="focus-ring inline-flex items-center justify-center gap-2 bg-signal px-6 py-4 text-sm font-bold transition hover:bg-white hover:text-ink" href="#contact">Request an estimate <ArrowRight size={18} aria-hidden="true" /></a>
+        <a class="focus-ring inline-flex items-center justify-center gap-2 border border-white/30 px-6 py-4 text-sm font-bold transition hover:border-white hover:bg-white/10" href="#services">Explore services <ArrowDown size={18} aria-hidden="true" /></a>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-x-7 gap-y-3 text-sm font-bold text-white/80">
+        <span class="flex items-center gap-2"><Zap size={17} class="text-signal" aria-hidden="true" /> Fast local service</span>
+        <span class="flex items-center gap-2"><ShieldCheck size={17} class="text-signal" aria-hidden="true" /> Work you can trust</span>
+      </div>
+    </div>
+    <div class="relative hidden lg:block" aria-hidden="true">
+      <div class="ml-auto aspect-square max-w-md rounded-full border-[22px] border-white/10 p-5">
+        <div class="flex size-full items-center justify-center rounded-full border border-dashed border-white/30 bg-ink-soft/80">
+          <div class="text-center"><span class="display block text-8xl text-signal">AND</span><span class="text-xs font-bold uppercase tracking-[.25em] text-white/60">Since day one</span></div>
+        </div>
+      </div>
+      <div class="absolute -left-5 bottom-8 flex items-center gap-3 bg-cream px-5 py-4 text-ink shadow-xl"><BadgeCheck class="text-signal" size={28} /><span class="text-sm font-bold">Local care. Real value.</span></div>
+    </div>
+  </div>
+  <a class="focus-ring absolute bottom-4 right-5 hidden items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/70 lg:flex" href={`tel:${siteData.phone}`}><Phone size={15} /> Call {siteData.phoneDisplay}</a>
+</section>

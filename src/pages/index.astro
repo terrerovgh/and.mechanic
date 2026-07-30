@@ -1,0 +1,55 @@
+---
+import { BadgeDollarSign, Gauge, ScanSearch, Star } from 'lucide-astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import BookingForm from '../components/BookingForm.astro';
+import LocationMap from '../components/LocationMap.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+import { siteData } from '../data/siteData';
+
+const differentiators = [
+  { icon: BadgeDollarSign, number: '01', title: 'Value without shortcuts', text: 'As part of the All Needs Discount family, we believe good auto care should be within reach.' },
+  { icon: ScanSearch, number: '02', title: 'Diagnose before we repair', text: 'We take time to identify the concern and explain the solution in terms that make sense.' },
+  { icon: Gauge, number: '03', title: 'Built for your schedule', text: 'Fast, local service focused on getting you confidently back to your day.' },
+];
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <Hero />
+
+    <section id="services" class="section-pad bg-cream" aria-labelledby="services-title">
+      <div class="container-site">
+        <div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div><p class="eyebrow">Complete car care</p><h2 id="services-title" class="display mt-4 text-5xl leading-[.86] sm:text-6xl">The service you need.<br /><span class="text-signal">The clarity you deserve.</span></h2></div>
+          <p class="max-w-xs text-sm leading-relaxed text-ink-soft">From warning lights to routine maintenance, our team is ready to help keep your vehicle dependable.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {siteData.services.map((service, index) => <ServiceCard service={service} index={index} />)}
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section-pad bg-white" aria-labelledby="why-title">
+      <div class="container-site grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+        <div><p class="eyebrow">The All Needs Difference</p><h2 id="why-title" class="display mt-4 text-5xl leading-[.87] sm:text-6xl">Your car is<br />important.<br /><span class="text-signal">So is your trust.</span></h2><p class="mt-7 max-w-sm text-base leading-relaxed text-ink-soft">We are here to make the repair process more straightforward: helpful answers, fair recommendations and work that puts your safety first.</p></div>
+        <div class="grid content-center gap-1">{differentiators.map((item) => { const Icon = item.icon; return <article class="grid grid-cols-[auto_1fr] gap-x-5 border-b border-ink/15 py-7 first:border-t"><span class="display text-3xl text-signal">{item.number}</span><div><div class="flex items-center gap-2"><Icon size={19} class="text-ink" aria-hidden="true" /><h3 class="text-lg font-bold">{item.title}</h3></div><p class="mt-2 max-w-lg text-sm leading-relaxed text-ink-soft">{item.text}</p></div></article>})}</div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section-pad bg-signal text-white" aria-labelledby="reviews-title">
+      <div class="container-site"><div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p class="text-xs font-bold uppercase tracking-[.18em] text-white/75">Neighbors helping neighbors</p><h2 id="reviews-title" class="display mt-3 text-5xl leading-[.88] sm:text-6xl">Trusted around town.</h2></div><div class="flex gap-1 text-white" aria-label="Five out of five stars">{Array.from({ length: 5 }, () => <Star size={18} fill="currentColor" aria-hidden="true" />)}</div></div><div class="mt-10 grid gap-4 lg:grid-cols-3">{siteData.testimonials.map((testimonial) => <figure class="flex min-h-64 flex-col bg-white p-7 text-ink"><blockquote class="text-lg font-medium leading-relaxed">&ldquo;{testimonial.quote}&rdquo;</blockquote><figcaption class="mt-auto pt-8 text-xs font-bold uppercase tracking-[.14em] text-ink-soft">{testimonial.name}<span class="mt-1 block normal-case tracking-normal text-ink/60">{testimonial.location}</span></figcaption></figure>)}</div></div>
+    </section>
+
+    <BookingForm />
+    <LocationMap />
+    <FAQ />
+  </main>
+  <Footer />
+  <MobileCallBar />
+</BaseLayout>

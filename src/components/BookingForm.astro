@@ -1,0 +1,29 @@
+---
+import { ArrowRight, CalendarDays } from 'lucide-astro';
+import { siteData } from '../data/siteData';
+---
+
+<section id="contact" class="section-pad bg-ink text-white" aria-labelledby="booking-title">
+  <div class="container-site grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+    <div>
+      <p class="eyebrow text-[#ffc4aa]">Start here</p>
+      <h2 id="booking-title" class="display mt-4 text-5xl leading-[.88] sm:text-6xl">Tell us what<br />your car needs.</h2>
+      <p class="mt-6 max-w-md leading-relaxed text-white/70">Request an appointment or estimate. We will follow up to confirm availability and discuss your vehicle.</p>
+      <a class="focus-ring mt-8 inline-flex items-center gap-3 text-lg font-bold text-white hover:text-signal" href={`tel:${siteData.phone}`}><span class="flex size-11 items-center justify-center bg-signal"><CalendarDays size={20} /></span> Prefer to call?<br />{siteData.phoneDisplay}</a>
+      <p class="mt-10 border-l-2 border-signal pl-4 text-xs leading-relaxed text-white/55">Need a repair today? Calling is the fastest way to check same-day availability.</p>
+    </div>
+    <form class="bg-white p-6 text-ink sm:p-8" action={siteData.formEndpoint || undefined} method="POST" aria-label="Request service appointment">
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="text-sm font-bold">Name <span class="text-signal">*</span><input class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="name" autocomplete="name" required /></label>
+        <label class="text-sm font-bold">Phone <span class="text-signal">*</span><input class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="phone" type="tel" autocomplete="tel" required /></label>
+        <label class="text-sm font-bold">Email <span class="text-signal">*</span><input class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="email" type="email" autocomplete="email" required /></label>
+        <label class="text-sm font-bold">Preferred date<input class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="preferred_date" type="date" /></label>
+      </div>
+      <label class="mt-5 block text-sm font-bold">Year, make & model <span class="text-signal">*</span><input class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="vehicle" placeholder="e.g. 2018 Ford F-150" required /></label>
+      <label class="mt-5 block text-sm font-bold">Service needed <span class="text-signal">*</span><select class="focus-ring mt-2 block w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="service" required><option value="">Select a service</option>{siteData.services.map((service) => <option value={service.title}>{service.title}</option>)}<option value="Other">Other / not sure</option></select></label>
+      <label class="mt-5 block text-sm font-bold">What is going on?<textarea class="focus-ring mt-2 block min-h-28 w-full border border-ink/20 bg-cream px-3 py-3 font-normal" name="comments" placeholder="Tell us about any sounds, warning lights or concerns."></textarea></label>
+      <button class="focus-ring mt-6 inline-flex w-full items-center justify-center gap-2 bg-signal px-5 py-4 text-sm font-bold text-white transition hover:bg-ink sm:w-auto" type="submit">Request appointment <ArrowRight size={17} aria-hidden="true" /></button>
+      <p class="mt-4 text-xs leading-relaxed text-ink/60">No obligation. Submitting this form does not confirm an appointment.</p>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+import { Facebook, MapPin, Phone } from 'lucide-astro';
+import { siteData } from '../data/siteData';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink py-12 pb-24 text-white sm:pb-12">
+  <div class="container-site grid gap-10 md:grid-cols-[1.2fr_.8fr_.8fr]">
+    <div><div class="flex items-center gap-3"><img src="/logo-mark.svg" class="size-12" width="48" height="48" alt="" /><div><span class="block text-xs font-bold uppercase tracking-[.18em] text-signal">All Needs Discount</span><span class="display block text-3xl leading-6">Mechanic</span></div></div><p class="mt-4 max-w-xs text-sm leading-relaxed text-white/60">Dependable auto care for the roads and people of South Georgia.</p></div>
+    <div><h2 class="text-xs font-bold uppercase tracking-[.16em] text-white/50">Quick links</h2><nav class="mt-4 flex flex-col gap-2 text-sm"><a class="focus-ring hover:text-signal" href="#services">Services</a><a class="focus-ring hover:text-signal" href="#why-us">Why choose us</a><a class="focus-ring hover:text-signal" href="#contact">Request service</a></nav></div>
+    <div><h2 class="text-xs font-bold uppercase tracking-[.16em] text-white/50">Contact</h2><div class="mt-4 space-y-3 text-sm"><a class="focus-ring flex items-center gap-2 hover:text-signal" href={`tel:${siteData.phone}`}><Phone size={16} /> {siteData.phoneDisplay}</a><span class="flex items-start gap-2 text-white/70"><MapPin class="mt-0.5 shrink-0" size={16} /> {siteData.address.street}</span><a class="focus-ring inline-flex hover:text-signal" href="https://www.facebook.com" aria-label="Facebook"><Facebook size={18} /></a></div></div>
+  </div>
+  <div class="container-site mt-10 border-t border-white/10 pt-5 text-xs text-white/45">&copy; {year} {siteData.businessName}. All rights reserved.</div>
+</footer>

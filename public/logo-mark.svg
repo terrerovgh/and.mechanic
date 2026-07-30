@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-labelledby="title">
+  <title id="title">All Needs Discount Mechanic logo</title>
+  <rect width="80" height="80" rx="8" fill="#ff5a1f"/>
+  <path d="M48.8 15.4 55 21.6l-7.1 7.1 4.2 4.2 7.1-7.1 6.2 6.2-7.1 7.1 4.2 4.2 7.1-7.1 6.2 6.2-19.6 19.6a9.5 9.5 0 0 1-13.4 0L17.1 37.2a9.5 9.5 0 0 1 0-13.4l8.3-8.4 6.2 6.2-8.3 8.4a.7.7 0 0 0 0 1l25.5 25.5a.7.7 0 0 0 1 0l19.6-19.6-6.2-6.2-7.1 7.1-4.2-4.2 7.1-7.1-6.2-6.2-7.1 7.1-4.2-4.2 7.1-7.1-4.2-4.2-7.1 7.1-6.2-6.2 7.1-7.1-6.2-6.2Z" fill="#fff"/>
+  <path d="M22 59h18v6H22z" fill="#101820"/>
+  <path d="M22 68h30v4H22z" fill="#101820" opacity=".72"/>
+</svg>
