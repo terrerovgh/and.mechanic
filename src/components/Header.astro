@@ -20,9 +20,8 @@ const nav = [
   </div>
   <div class="border-b border-ink/10 bg-cream/95 backdrop-blur">
     <div class="container-site flex h-20 items-center justify-between">
-      <a href="#top" class="focus-ring flex items-center gap-2.5 leading-none" aria-label={`${siteData.businessName} home`}>
-        <img src="/logo-mark.svg" class="size-11" width="44" height="44" alt="" />
-        <span><span class="block text-xs font-bold uppercase tracking-[0.18em] text-signal">All Needs Discount</span><span class="display block text-2xl leading-5 text-ink">Mechanic</span></span>
+      <a href="#top" class="focus-ring flex items-center leading-none" aria-label={`${siteData.businessName} home`}>
+        <img src="/all-needs-mechanic-logo-transparent.png" class="h-16 w-auto" width="96" height="64" alt={siteData.businessName} />
       </a>
       <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
         {nav.map((item) => <a class="focus-ring text-sm font-bold text-ink-soft transition hover:text-signal" href={item.href}>{item.label}</a>)}
