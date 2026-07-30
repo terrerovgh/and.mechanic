@@ -1,5 +1,5 @@
 ---
-import { ArrowDown, ArrowRight, BadgeCheck, Phone, ShieldCheck, Zap } from 'lucide-astro';
+import { ArrowDown, ArrowRight, Phone, ShieldCheck, Zap } from 'lucide-astro';
 import { siteData } from '../data/siteData';
 ---
 
@@ -19,13 +19,10 @@ import { siteData } from '../data/siteData';
         <span class="flex items-center gap-2"><ShieldCheck size={17} class="text-signal" aria-hidden="true" /> Work you can trust</span>
       </div>
     </div>
-    <div class="relative hidden lg:block" aria-hidden="true">
-      <div class="ml-auto aspect-square max-w-md rounded-full border-[22px] border-white/10 p-5">
-        <div class="flex size-full items-center justify-center rounded-full border border-dashed border-white/30 bg-ink-soft/80">
-          <div class="text-center"><span class="display block text-8xl text-signal">AND</span><span class="text-xs font-bold uppercase tracking-[.25em] text-white/60">Since day one</span></div>
-        </div>
+    <div class="relative hidden lg:block">
+      <div class="ml-auto max-w-md border-b-8 border-signal bg-white p-7 shadow-2xl">
+        <img src="/all-needs-mechanic-logo-transparent.png" class="h-auto w-full" width="410" height="259" alt={siteData.businessName} />
       </div>
-      <div class="absolute -left-5 bottom-8 flex items-center gap-3 bg-cream px-5 py-4 text-ink shadow-xl"><BadgeCheck class="text-signal" size={28} /><span class="text-sm font-bold">Local care. Real value.</span></div>
     </div>
   </div>
   <a class="focus-ring absolute bottom-4 right-5 hidden items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/70 lg:flex" href={`tel:${siteData.phone}`}><Phone size={15} /> Call {siteData.phoneDisplay}</a>
